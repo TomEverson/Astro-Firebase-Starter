@@ -1,20 +1,12 @@
 ---
-import { db } from "../../lib/firebase";
-import { collection, getDocs } from "firebase/firestore";
-
-const query = await getDocs(collection(db, "blog"));
-const datas = query.docs.map((query) => ({ ...query.data(), id: query.id }));
+import Head from "../layout/Head.astro";
+import MainLayout from "../layout/MainLayout.astro";
+import { GoogleOuath } from "../components/auth/google";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    {datas.map((data: any) => <div>{data.title}</div>)}
-  </body>
-</html>
+<Head title="Astro-Firebase🔥" />
+<MainLayout>
+  <div class="flex min-h-screen flex-col items-center justify-center">
+    <GoogleOuath client:load />
+  </div>
+</MainLayout>

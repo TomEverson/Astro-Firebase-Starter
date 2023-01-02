@@ -1,13 +1,12 @@
-# Astro Starter Kit: Minimal
+# Astro SSG🚀 + Firebase🔥
 
-```
-npm create astro@latest -- --template minimal
-```
+## 🧑‍🚀 Setup
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/minimal)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. Firebase Auth🔥
+2. Firestore📦
+3. Astro SSG🚀
+4. Preact⚛️
+5. Tailwind🌬️
 
 ## 🚀 Project Structure
 
@@ -16,7 +15,11 @@ Inside of your Astro project, you'll see the following folders and files:
 ```
 /
 ├── public/
+├── lib/
+├── utils/
 ├── src/
+│   └── components/
+│   └── layout/
 │   └── pages/
 │       └── index.astro
 └── package.json

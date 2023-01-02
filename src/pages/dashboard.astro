@@ -1,0 +1,47 @@
+---
+import Head from "../layout/Head.astro";
+import MainLayout from "../layout/MainLayout.astro";
+import { Logout } from "../components/auth/logout";
+import { db } from "../../lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
+const query = await getDocs(collection(db, "blog"));
+const datas = query.docs.map((query) => ({ ...query.data(), id: query.id }));
+---
+
+<Head title="Dashboard" />
+<MainLayout>
+  <div class="flex flex-col items-center">
+    <h1
+      class="mt-36 text-5xl font-extrabold tracking-tight text-white sm:text-[5rem] text-center"
+    >
+      These Datas are Fetch From<br />
+      <span class="text-orange-400">Firestore🔥</span>&
+      <span class="text-blue-400">Static❄️</span>
+      <br />
+      The Route Is Also
+      <span class="text-yellow-300">Protected🔒</span>
+    </h1>
+    {
+      datas.map((data: any) => (
+        <div class="text-white mt-32 text-center flex flex-col gap-5">
+          <h3 class="text-3xl font-extrabold tracking-tight">{data.author}</h3>
+          <h5 class="text-xl font-extrabold tracking-normal">{data.title}</h5>
+          <p class="text-lg">{data.description}</p>
+        </div>
+      ))
+    }
+    <Logout client:load />
+  </div>
+</MainLayout>
+
+<script>
+  import { auth } from "../../lib/firebase";
+  import { onAuthStateChanged } from "@firebase/auth";
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "/";
+    }
+  });
+</script>
