@@ -11,7 +11,15 @@ const datas = query.docs.map((query) => ({ ...query.data(), id: query.id }));
 
 <Head title="Dashboard" />
 <MainLayout>
-  <div class="flex flex-col items-center">
+  <!-- Loading Spinner -->
+  <div id="loading">
+    <h1
+      class="mt-36 text-5xl font-extrabold tracking-tight text-white sm:text-[5rem] text-center"
+    >
+      Loading...
+    </h1>
+  </div>
+  <div class="flex-col items-center hidden" id="protected">
     <h1
       class="mt-36 text-5xl font-extrabold tracking-tight text-white sm:text-[5rem] text-center"
     >
@@ -39,9 +47,13 @@ const datas = query.docs.map((query) => ({ ...query.data(), id: query.id }));
   import { auth } from "../../lib/firebase";
   import { onAuthStateChanged } from "@firebase/auth";
 
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
+  window.addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById("loading")!.style.display = "none";
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("protected")!.style.display = "flex";
+      }
       window.location.href = "/";
-    }
+    });
   });
 </script>
