@@ -1,5 +1,7 @@
 # Astro SSG🚀 + Firebase🔥
 
+### Please Checkout this repo if you want to opt into SSR: [astro-firebase](https://github.com/kevinzunigacuellar/astro-firebase)
+
 ## 🧑‍🚀 Setup
 
 1. Firebase Auth🔥
