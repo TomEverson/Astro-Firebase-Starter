@@ -53,7 +53,9 @@ const datas = query.docs.map((query) => ({ ...query.data(), id: query.id }));
       if (user) {
         document.getElementById("protected")!.style.display = "flex";
       }
-      window.location.href = "/";
+      else{
+        window.location.href = "/";
+      }
     });
   });
 </script>
