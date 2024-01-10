@@ -1,5 +1,6 @@
 # Astro SSG🚀 + Firebase🔥
 
+### This One Is Outdated, and will no longer be updated
 ### Please Checkout this repo if you want to opt into SSR: [astro-firebase](https://github.com/kevinzunigacuellar/astro-firebase)
 
 ## 🧑‍🚀 Setup
